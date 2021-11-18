@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'slave' }
+    agent { label 'test3' }
     triggers { 
         cron('H 2 * * 7')
     }
@@ -42,7 +42,7 @@ pipeline {
 
         stage('Push report') {
             steps {
-                withCredentials([string(credentialsId: 'github_token', variable: 'token')]) {
+                withCredentials([string(credentialsId: 'some_randome', variable: 'token')]) {
                     
                      sh 'git add results/'
                      sh 'git commit -m "Add report_$BUILD_ID"'
