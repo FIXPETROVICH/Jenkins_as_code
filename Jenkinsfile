@@ -29,7 +29,7 @@ pipeline {
             }
         }
 
-        stage('SpeedTest') {
+        stage('Internet access speed test') {
             steps {
                    sh """
                        wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
@@ -40,9 +40,9 @@ pipeline {
             }
         }
 
-        stage('Push report') {
+        stage('Saving results') {
             steps {
-                withCredentials([string(credentialsId: 'github_token', variable: 'token')]) {
+                withCredentials([string(credentialsId: 'some_randome', variable: 'token')]) {
                     
                      sh 'git add results/'
                      sh 'git commit -m "Add report_$BUILD_ID"'
