@@ -34,7 +34,7 @@ pipeline {
                    sh """
                        wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
                        chmod +x speedtest-cli
-                       echo "##########################" >> results/goal_${env.BUILD_ID}.txt
+                       echo "#####################################################" >> results/goal_${env.BUILD_ID}.txt
                        ./speedtest-cli >> results/goal_${env.BUILD_ID}.txt
                    """
             }
