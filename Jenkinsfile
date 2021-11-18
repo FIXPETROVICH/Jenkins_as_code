@@ -44,7 +44,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'github_token', variable: 'token')]) {
                     
-                     sh 'git add reports/'
+                     sh 'git add results/'
                      sh 'git commit -m "Add report_$BUILD_ID"'
                      sh 'git push https://$token@github.com/FIXPETROVICH/Jenkins_as_code.git'
                     
